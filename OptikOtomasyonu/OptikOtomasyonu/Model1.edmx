@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OptikOtomasyonuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLBARKOD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BarkodNo" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLHIZLIURUN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="20" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="100" />
+          <Property Name="fiyat" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBLISLEM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="islemno" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLISLEMOZET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IslemNo" Type="int" />
+          <Property Name="Iade" Type="bit" />
+          <Property Name="OdemeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nakit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Kart" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Gelir" Type="bit" />
+          <Property Name="Gider" Type="bit" />
+          <Property Name="AlisFiyatToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLKULLANICI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="100" />
+          <Property Name="EPosta" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Satis" Type="bit" />
+          <Property Name="Rapor" Type="bit" />
+          <Property Name="Stok" Type="bit" />
+          <Property Name="UrunGiris" Type="bit" />
+          <Property Name="Ayarlar" Type="bit" />
+          <Property Name="FiyatGuncelle" Type="bit" />
+          <Property Name="Yedekleme" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLSABIT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KartKomisyon" Type="int" />
+          <Property Name="Yazici" Type="bit" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="500" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Eposta" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLSATIS">
+          <Key>
+            <PropertyRef Name="Satisid" />
+          </Key>
+          <Property Name="Satisid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="islemno" Type="int" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunGrup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KdvTutari" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="iade" Type="bit" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLSTOKHAREKET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="UrunGrup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBLTERAZI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeraziOnEk" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLURUN">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="70" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="100" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="130" />
+          <Property Name="UrunGrup" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="int" />
+          <Property Name="KdvTutari" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Kullanici" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLURUNGRUP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunGrupAd" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="OptikOtomasyonuModelStoreContainer">
+          <EntitySet Name="TBLBARKOD" EntityType="Self.TBLBARKOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHIZLIURUN" EntityType="Self.TBLHIZLIURUN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLISLEM" EntityType="Self.TBLISLEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLISLEMOZET" EntityType="Self.TBLISLEMOZET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKULLANICI" EntityType="Self.TBLKULLANICI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSABIT" EntityType="Self.TBLSABIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSATIS" EntityType="Self.TBLSATIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSTOKHAREKET" EntityType="Self.TBLSTOKHAREKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTERAZI" EntityType="Self.TBLTERAZI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLURUN" EntityType="Self.TBLURUN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLURUNGRUP" EntityType="Self.TBLURUNGRUP" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OptikOtomasyonuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OptikOtomasyonuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLSATIS" EntityType="OptikOtomasyonuModel.TBLSATIS" />
+          <EntitySet Name="TBLBARKOD" EntityType="OptikOtomasyonuModel.TBLBARKOD" />
+          <EntitySet Name="TBLHIZLIURUN" EntityType="OptikOtomasyonuModel.TBLHIZLIURUN" />
+          <EntitySet Name="TBLISLEM" EntityType="OptikOtomasyonuModel.TBLISLEM" />
+          <EntitySet Name="TBLISLEMOZET" EntityType="OptikOtomasyonuModel.TBLISLEMOZET" />
+          <EntitySet Name="TBLTERAZI" EntityType="OptikOtomasyonuModel.TBLTERAZI" />
+          <EntitySet Name="TBLURUNGRUP" EntityType="OptikOtomasyonuModel.TBLURUNGRUP" />
+          <EntitySet Name="TBLURUN" EntityType="OptikOtomasyonuModel.TBLURUN" />
+          <EntitySet Name="TBLSTOKHAREKET" EntityType="OptikOtomasyonuModel.TBLSTOKHAREKET" />
+          <EntitySet Name="TBLSABIT" EntityType="OptikOtomasyonuModel.TBLSABIT" />
+          <EntitySet Name="TBLKULLANICI" EntityType="OptikOtomasyonuModel.TBLKULLANICI" />
+        </EntityContainer>
+        <EntityType Name="TBLSATIS">
+          <Key>
+            <PropertyRef Name="Satisid" />
+          </Key>
+          <Property Name="Satisid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="islemno" Type="Int32" />
+          <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Toplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvTutari" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iade" Type="Boolean" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLBARKOD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BarkodNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLHIZLIURUN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fiyat" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBLISLEM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="islemno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLISLEMOZET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IslemNo" Type="Int32" />
+          <Property Name="Iade" Type="Boolean" />
+          <Property Name="OdemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nakit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Kart" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Gelir" Type="Boolean" />
+          <Property Name="Gider" Type="Boolean" />
+          <Property Name="AlisFiyatToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLTERAZI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeraziOnEk" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLURUNGRUP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunGrupAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLURUN">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
+          <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="Int32" />
+          <Property Name="KdvTutari" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLSTOKHAREKET">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UrunGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBLSABIT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KartKomisyon" Type="Int32" />
+          <Property Name="Yazici" Type="Boolean" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Unvan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLKULLANICI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EPosta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Satis" Type="Boolean" />
+          <Property Name="Rapor" Type="Boolean" />
+          <Property Name="Stok" Type="Boolean" />
+          <Property Name="UrunGiris" Type="Boolean" />
+          <Property Name="Ayarlar" Type="Boolean" />
+          <Property Name="FiyatGuncelle" Type="Boolean" />
+          <Property Name="Yedekleme" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OptikOtomasyonuModelStoreContainer" CdmEntityContainer="OptikOtomasyonuEntities">
+          <EntitySetMapping Name="TBLSATIS">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLSATIS">
+              <MappingFragment StoreEntitySet="TBLSATIS">
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="iade" ColumnName="iade" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="KdvTutari" ColumnName="KdvTutari" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="islemno" ColumnName="islemno" />
+                <ScalarProperty Name="Satisid" ColumnName="Satisid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLBARKOD">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLBARKOD">
+              <MappingFragment StoreEntitySet="TBLBARKOD">
+                <ScalarProperty Name="BarkodNo" ColumnName="BarkodNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHIZLIURUN">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLHIZLIURUN">
+              <MappingFragment StoreEntitySet="TBLHIZLIURUN">
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLISLEM">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLISLEM">
+              <MappingFragment StoreEntitySet="TBLISLEM">
+                <ScalarProperty Name="islemno" ColumnName="islemno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLISLEMOZET">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLISLEMOZET">
+              <MappingFragment StoreEntitySet="TBLISLEMOZET">
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="AlisFiyatToplam" ColumnName="AlisFiyatToplam" />
+                <ScalarProperty Name="Gider" ColumnName="Gider" />
+                <ScalarProperty Name="Gelir" ColumnName="Gelir" />
+                <ScalarProperty Name="Kart" ColumnName="Kart" />
+                <ScalarProperty Name="Nakit" ColumnName="Nakit" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="Iade" ColumnName="Iade" />
+                <ScalarProperty Name="IslemNo" ColumnName="IslemNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTERAZI">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLTERAZI">
+              <MappingFragment StoreEntitySet="TBLTERAZI">
+                <ScalarProperty Name="TeraziOnEk" ColumnName="TeraziOnEk" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLURUNGRUP">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLURUNGRUP">
+              <MappingFragment StoreEntitySet="TBLURUNGRUP">
+                <ScalarProperty Name="UrunGrupAd" ColumnName="UrunGrupAd" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLURUN">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLURUN">
+              <MappingFragment StoreEntitySet="TBLURUN">
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="KdvTutari" ColumnName="KdvTutari" />
+                <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSTOKHAREKET">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLSTOKHAREKET">
+              <MappingFragment StoreEntitySet="TBLSTOKHAREKET">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSABIT">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLSABIT">
+              <MappingFragment StoreEntitySet="TBLSABIT">
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Yazici" ColumnName="Yazici" />
+                <ScalarProperty Name="KartKomisyon" ColumnName="KartKomisyon" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKULLANICI">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLKULLANICI">
+              <MappingFragment StoreEntitySet="TBLKULLANICI">
+                <ScalarProperty Name="Yedekleme" ColumnName="Yedekleme" />
+                <ScalarProperty Name="FiyatGuncelle" ColumnName="FiyatGuncelle" />
+                <ScalarProperty Name="Ayarlar" ColumnName="Ayarlar" />
+                <ScalarProperty Name="UrunGiris" ColumnName="UrunGiris" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+                <ScalarProperty Name="Rapor" ColumnName="Rapor" />
+                <ScalarProperty Name="Satis" ColumnName="Satis" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
