@@ -12,9 +12,18 @@ namespace OptikOtomasyonu
 {
     public partial class FrmSatis : Form
     {
-        public FrmSatis()
+
+
+        Label lbl = new Label();
+        public FrmSatis(decimal deger = 0)
         {
+            deger.ToString("0.00");
+            lbl.Location = new Point(465, 10);
+            lbl.Text = deger.ToString("C2");
+            lbl.Name = "FerhatLBL";
+            this.Controls.Add(lbl);
             InitializeComponent();
+
         }
         OptikOtomasyonuEntities db = new OptikOtomasyonuEntities();
         public double gelenIndirim { get; set; }
@@ -101,26 +110,14 @@ namespace OptikOtomasyonu
             }
         }
 
-        public double FerhatDeniyor()
-        {
-            double[] diziFiyat = new double[gridsatislistesi.Rows.Count];
 
-            for (int i = 0; i < gridsatislistesi.Rows.Count; i++)
-            {
-                diziFiyat[i] += Convert.ToDouble(gridsatislistesi.Rows[i].Cells["Toplam"].Value);
-            }
-
-            var resultValue = diziFiyat.Sum();
-            return resultValue;
-        }
-
-        public double geneltoplam()
+        public decimal geneltoplam()
         {
 
-            double toplam = 0;
+            decimal toplam = 0;
             for (int i = 0; i < gridsatislistesi.Rows.Count; i++)
             {
-                toplam += Convert.ToDouble(gridsatislistesi.Rows[i].Cells["Toplam"].Value);
+                toplam += Convert.ToDecimal(gridsatislistesi.Rows[i].Cells["Toplam"].Value);
                 txtgeneltoplam.Text = toplam.ToString("C2");
                 txtmiktar.Text = "1";
                 txtbarkod.Clear();
@@ -159,6 +156,8 @@ namespace OptikOtomasyonu
         }
         private void hizlibuttonclick(object sender, EventArgs e)
         {
+
+
             Button b = (Button)sender;
             int butonid = Convert.ToInt16(b.Name.ToString().Substring(2, b.Name.Length - 2));
             if (b.Text.ToString().StartsWith("-"))
@@ -175,9 +174,11 @@ namespace OptikOtomasyonu
                 geneltoplam();
             }
         }
+
+
         private void FrmSatis_Load(object sender, EventArgs e)
         {
-            FrmIndirimliSatis satis = new FrmIndirimliSatis();
+            txtgeneltoplam.Text = lbl.Text;
             HizliButonDoldur();
             b5.Text = 5.ToString("C2");
             b10.Text = 10.ToString("C2");
@@ -186,7 +187,7 @@ namespace OptikOtomasyonu
             b100.Text = 100.ToString("C2");
             b200.Text = 200.ToString("C2");
 
-            txtgeneltoplam.Text = satis.setGelenDegerFormSatis.ToString();
+            //txtgeneltoplam.Text = satis.setGelenDegerFormSatis.ToString("C2");
         }
         private void bh_MouseDown(object sender, MouseEventArgs e)
         {
@@ -550,18 +551,12 @@ namespace OptikOtomasyonu
 
         private void BtnIndirimliSatis_Click(object sender, EventArgs e)
         {
-            FrmIndirimliSatis fr = new FrmIndirimliSatis();
-            fr.gelenDeger = geneltoplam();
-            fr.Show();
+
+
+            FrmIndirimliSatis otherForm = new FrmIndirimliSatis();
+            otherForm.gelenDeger = geneltoplam();
+            otherForm.Show();
 
         }
-
-        private void txtgeneltoplam_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public double verAlevAlsin { get; set; }
-      
     }
 }

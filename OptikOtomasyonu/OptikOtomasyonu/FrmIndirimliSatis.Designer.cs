@@ -194,6 +194,7 @@ namespace OptikOtomasyonu
             this.Name = "FrmIndirimliSatis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "İNDİRİMLİ SATIŞ";
+            this.Load += new System.EventHandler(this.FrmIndirimliSatis_Load);
             this.ResumeLayout(false);
 
         }

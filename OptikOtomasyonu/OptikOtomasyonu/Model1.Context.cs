@@ -36,5 +36,6 @@ namespace OptikOtomasyonu
         public virtual DbSet<TBLSTOKHAREKET> TBLSTOKHAREKET { get; set; }
         public virtual DbSet<TBLSABIT> TBLSABIT { get; set; }
         public virtual DbSet<TBLKULLANICI> TBLKULLANICI { get; set; }
+        public virtual DbSet<TBLFIXURUN> TBLFIXURUN { get; set; }
     }
 }

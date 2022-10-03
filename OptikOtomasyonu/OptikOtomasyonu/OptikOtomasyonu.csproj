@@ -208,6 +208,9 @@
     <Compile Include="TBLBARKOD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBLFIXURUN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBLHIZLIURUN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

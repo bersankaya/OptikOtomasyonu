@@ -12,6 +12,18 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BarkodNo" Type="int" />
         </EntityType>
+        <EntityType Name="TBLFIXURUN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAd" Type="nvarchar" MaxLength="150" />
+          <Property Name="Birim" Type="varchar" MaxLength="50" />
+          <Property Name="SatisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Miktar" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <EntityType Name="TBLHIZLIURUN">
           <Key>
             <PropertyRef Name="id" />
@@ -143,6 +155,7 @@
         </EntityType>
         <EntityContainer Name="OptikOtomasyonuModelStoreContainer">
           <EntitySet Name="TBLBARKOD" EntityType="Self.TBLBARKOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLFIXURUN" EntityType="Self.TBLFIXURUN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHIZLIURUN" EntityType="Self.TBLHIZLIURUN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLISLEM" EntityType="Self.TBLISLEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLISLEMOZET" EntityType="Self.TBLISLEMOZET" Schema="dbo" store:Type="Tables" />
@@ -170,6 +183,7 @@
           <EntitySet Name="TBLSTOKHAREKET" EntityType="OptikOtomasyonuModel.TBLSTOKHAREKET" />
           <EntitySet Name="TBLSABIT" EntityType="OptikOtomasyonuModel.TBLSABIT" />
           <EntitySet Name="TBLKULLANICI" EntityType="OptikOtomasyonuModel.TBLKULLANICI" />
+          <EntitySet Name="TBLFIXURUN" EntityType="OptikOtomasyonuModel.TBLFIXURUN" />
         </EntityContainer>
         <EntityType Name="TBLSATIS">
           <Key>
@@ -306,6 +320,18 @@
           <Property Name="Ayarlar" Type="Boolean" />
           <Property Name="FiyatGuncelle" Type="Boolean" />
           <Property Name="Yedekleme" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBLFIXURUN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAd" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Miktar" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Toplam" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -456,6 +482,19 @@
                 <ScalarProperty Name="EPosta" ColumnName="EPosta" />
                 <ScalarProperty Name="Telefon" ColumnName="Telefon" />
                 <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLFIXURUN">
+            <EntityTypeMapping TypeName="OptikOtomasyonuModel.TBLFIXURUN">
+              <MappingFragment StoreEntitySet="TBLFIXURUN">
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

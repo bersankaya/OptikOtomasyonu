@@ -149,8 +149,8 @@ namespace OptikOtomasyonu
             this.BtnBarkod = new System.Windows.Forms.Button();
             this.Btnislembeklet = new System.Windows.Forms.Button();
             this.BtnDiğerUrun = new System.Windows.Forms.Button();
-            this.BtnIndirimliSatis = new OptikOtomasyonu.Btnstandart();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnIndirimliSatis = new OptikOtomasyonu.Btnstandart();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -684,6 +684,7 @@ namespace OptikOtomasyonu
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(274, 129);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
@@ -701,7 +702,6 @@ namespace OptikOtomasyonu
             this.txtgeneltoplam.TabIndex = 0;
             this.txtgeneltoplam.Text = "₺0,00";
             this.txtgeneltoplam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtgeneltoplam.TextChanged += new System.EventHandler(this.txtgeneltoplam_TextChanged);
             // 
             // tableLayoutPanel10
             // 
@@ -1883,6 +1883,14 @@ namespace OptikOtomasyonu
             this.BtnDiğerUrun.UseVisualStyleBackColor = false;
             this.BtnDiğerUrun.Click += new System.EventHandler(this.BtnDiğerUrun_Click);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Sil";
+            this.dataGridViewImageColumn1.Image = global::OptikOtomasyonu.Properties.Resources.remove1;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
             // BtnIndirimliSatis
             // 
             this.BtnIndirimliSatis.BackColor = System.Drawing.Color.Tomato;
@@ -1901,14 +1909,6 @@ namespace OptikOtomasyonu
             this.BtnIndirimliSatis.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnIndirimliSatis.UseVisualStyleBackColor = false;
             this.BtnIndirimliSatis.Click += new System.EventHandler(this.BtnIndirimliSatis_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Sil";
-            this.dataGridViewImageColumn1.Image = global::OptikOtomasyonu.Properties.Resources.remove1;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 125;
             // 
             // FrmSatis
             // 
